@@ -3,15 +3,8 @@ lvim.format_on_save = true
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
-  "c",
   "json",
   "lua",
-  "javascript",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
   "yaml",
 }
 
