@@ -53,3 +53,14 @@ lvim.lsp.buffer_mappings.normal_mode["gf"] = {
   ":Telescope frecency<cr>",
   kind.cmp_kind.Reference .. " Telescope Frecency"
 }
+-- Normal mode resizing with Alt (Option) + Arrow
+lvim.keys.normal_mode["<A-Up>"]            = ":resize +3<CR>"
+lvim.keys.normal_mode["<A-Down>"]          = ":resize -3<CR>"
+lvim.keys.normal_mode["<A-Left>"]          = ":vertical resize -5<CR>"
+lvim.keys.normal_mode["<A-Right>"]         = ":vertical resize +5<CR>"
+
+-- Terminal mode resizing with Alt (Option) + Arrow
+lvim.keys.term_mode["<A-Up>"]              = "<C-\\><C-n>:resize +3<CR>i"
+lvim.keys.term_mode["<A-Down>"]            = "<C-\\><C-n>:resize -3<CR>i"
+lvim.keys.term_mode["<A-Left>"]            = "<C-\\><C-n>:vertical resize -5<CR>i"
+lvim.keys.term_mode["<A-Right>"]           = "<C-\\><C-n>:vertical resize +5<CR>i"
