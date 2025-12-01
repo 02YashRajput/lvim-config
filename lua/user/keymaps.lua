@@ -17,9 +17,21 @@ lvim.builtin.which_key.mappings["P"] = {
 }
 
 lvim.builtin.which_key.mappings["t"] = {
-  "<cmd>ToggleTerm direction=float<cr>",
+  "<cmd>ToggleTerm direction=horizontal size=15<cr>",
   "Terminal"
 }
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.keymap.set(
+      "t",
+      "<Esc>",
+      [[<C-\><C-n>]],
+      { buffer = true, silent = true }
+    )
+  end,
+})
 
 lvim.lsp.buffer_mappings.normal_mode["gr"] = {
   ":lua require'telescope.builtin'.lsp_references()<cr>",
