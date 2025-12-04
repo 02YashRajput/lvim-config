@@ -64,3 +64,6 @@ lvim.keys.term_mode["<A-Up>"]              = "<C-\\><C-n>:resize +3<CR>i"
 lvim.keys.term_mode["<A-Down>"]            = "<C-\\><C-n>:resize -3<CR>i"
 lvim.keys.term_mode["<A-Left>"]            = "<C-\\><C-n>:vertical resize -5<CR>i"
 lvim.keys.term_mode["<A-Right>"]           = "<C-\\><C-n>:vertical resize +5<CR>i"
+
+-- override <leader>q to close buffer instead of quitting LVim
+lvim.keys.normal_mode["<A-q>"]             = ":bp | bd #<CR>"
