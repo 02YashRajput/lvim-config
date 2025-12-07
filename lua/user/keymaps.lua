@@ -65,5 +65,30 @@ lvim.keys.term_mode["<A-Down>"]            = "<C-\\><C-n>:resize -3<CR>i"
 lvim.keys.term_mode["<A-Left>"]            = "<C-\\><C-n>:vertical resize -5<CR>i"
 lvim.keys.term_mode["<A-Right>"]           = "<C-\\><C-n>:vertical resize +5<CR>i"
 
--- override <leader>q to close buffer instead of quitting LVim
-lvim.keys.normal_mode["<A-q>"]             = ":bp | bd #<CR>"
+lvim.keys.normal_mode["<C-q>"]             = function()
+  local buf_count = #vim.fn.getbufinfo({ buflisted = 1 })
+
+  if buf_count > 1 then
+    vim.cmd("bp | bd #")
+  else
+    vim.cmd("bd")
+  end
+end
+
+lvim.builtin.which_key.mappings["/"]       = { "<cmd>Telescope live_grep<cr>", "Global Search" }
+
+lvim.builtin.which_key.mappings["s"]       = {
+  name = "Search",
+  r = {
+    "<cmd>lua require('spectre').open()<cr>",
+    "Search & Replace"
+  },
+  w = {
+    "<cmd>lua require('spectre').open_visual({select_word=true})<cr>",
+    "Search Current Word"
+  },
+  f = {
+    "<cmd>lua require('spectre').open_file_search()<cr>",
+    "Search in Current File"
+  },
+}

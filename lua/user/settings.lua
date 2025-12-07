@@ -1,4 +1,3 @@
-
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     -- Only open if no file is passed
@@ -12,4 +11,4 @@ vim.api.nvim_create_autocmd("VimEnter", {
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.width = 30
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-
+lvim.builtin.spectre.active = true
