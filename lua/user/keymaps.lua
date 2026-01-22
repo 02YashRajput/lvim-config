@@ -92,3 +92,23 @@ lvim.builtin.which_key.mappings["s"]       = {
     "Search in Current File"
   },
 }
+-- keep your own state
+local format_on_save_enabled               = lvim.format_on_save
+
+lvim.builtin.which_key.mappings["F"]       = {
+  function()
+    -- toggle via official command
+    vim.cmd("LvimToggleFormatOnSave")
+
+    -- update local state
+    format_on_save_enabled = not format_on_save_enabled
+
+    -- notify
+    vim.notify(
+      "Format on save: " .. (format_on_save_enabled and "ENABLED" or "DISABLED"),
+      vim.log.levels.INFO,
+      { title = "LunarVim" }
+    )
+  end,
+  kind.symbols_outline.File .. " Toggle format-on-save",
+}
