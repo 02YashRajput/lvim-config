@@ -5,8 +5,24 @@ lvim.plugins = {
       "nvim-lua/plenary.nvim",
     },
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false }, -- cmp handles suggestions
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
 }
-
 -- Configure Spectre settings
 local status_ok, spectre = pcall(require, "spectre")
 if status_ok then

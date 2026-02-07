@@ -112,3 +112,12 @@ lvim.builtin.which_key.mappings["F"]       = {
   end,
   kind.symbols_outline.File .. " Toggle format-on-save",
 }
+
+lvim.builtin.cmp.mapping["<C-l>"]          = function(fallback)
+  local cmp = require("cmp")
+  if cmp.visible() then
+    cmp.confirm({ select = true })
+  else
+    fallback()
+  end
+end
