@@ -8,7 +8,7 @@ lvim.plugins = {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "InsertEnter",
+    event = "VeryLazy",
     config = function()
       require("copilot").setup({
         suggestion = { enabled = false }, -- cmp handles suggestions
@@ -21,6 +21,28 @@ lvim.plugins = {
     config = function()
       require("copilot_cmp").setup()
     end,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    config = function()
+      local copilot = require("copilot")
+      local chat = require("CopilotChat")
+
+      chat.setup({
+        debug = false,
+        window = {
+          layout = 'float',
+          width = 0.8,
+          height = 0.8,
+        },
+      })
+    end,
+    event = "VeryLazy", -- Load after copilot.lua is initialized
   },
 }
 -- Configure Spectre settings

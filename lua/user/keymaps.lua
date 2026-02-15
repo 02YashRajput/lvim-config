@@ -121,3 +121,14 @@ lvim.builtin.cmp.mapping["<C-l>"]          = function(fallback)
     fallback()
   end
 end
+
+lvim.builtin.which_key.mappings["a"]       = {
+  name = "AI",
+  c = { "<cmd>CopilotChat<cr>", "Open Chat" },
+  e = { "<cmd>CopilotChatExplain<cr>", "Explain" },
+  t = { "<cmd>CopilotChatTests<cr>", "Generate Tests" },
+  r = { "<cmd>CopilotChatReview<cr>", "Review" },
+  f = { "<cmd>CopilotChatFix<cr>", "Fix" },
+  o = { "<cmd>CopilotChatOptimize<cr>", "Optimize" },
+  d = { "<cmd>CopilotChatDocs<cr>", "Generate Docs" },
+}
